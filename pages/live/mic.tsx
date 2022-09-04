@@ -7,7 +7,7 @@ import { useRef, useEffect } from 'react'
 export default function MicCC() {
   let lang = 'ja'
   let popupstatus = 'false'
-  const scrollBottomRef = useRef(null);
+  const scrollBottomRef = useRef<null | HTMLDivElement>(null);
   if (typeof window !== 'undefined') {lang = sessionStorage.getItem('cc-lang')!; popupstatus = sessionStorage.getItem("popup")!}
   speechrecognition(lang);
   useEffect(() => {
