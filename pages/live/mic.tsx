@@ -12,10 +12,11 @@ export default function MicCC() {
   speechrecognition(lang);
   useEffect(() => {
       const intervalId = setInterval(() => {
+      if (scrollBottomRef.currnt != null) {
       scrollBottomRef.current?.scrollIntoView({
           block: "start",
           behavior: "smooth"
-        });
+        });}
     }, 1000);
     return () => {
       clearInterval(intervalId);
