@@ -4,7 +4,7 @@ import {speechrecognition} from '../../libs/wsapi'
 
 export default function YouTubeCC() {
   let lang = 'ja'
-  if (typeof window !== 'undefined') {lang = sessionStorage.getItem('cc-lang')}
+  if (typeof window !== 'undefined') {lang = sessionStorage.getItem('cc-lang')!}
   speechrecognition(lang);
   return (<>
       <Head>
