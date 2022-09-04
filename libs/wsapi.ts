@@ -12,28 +12,28 @@ export function speechrecognition(lang: string) {
     recognition.interimResults = true;
     recognition.continuous = true;
     recognition.onsoundstart = function(){
-    document.getElementById('status').innerHTML = "認識中";
+    document.getElementById('status')!.innerHTML = "認識中";
     };
     recognition.onnomatch = function(){
-    document.getElementById('status').innerHTML = "もう一度試してください";
+    document.getElementById('status')!.innerHTML = "もう一度試してください";
     };
     recognition.onerror= function(){
-    document.getElementById('status').innerHTML = "エラー";
+    document.getElementById('status')!.innerHTML = "エラー";
     speechrecognition(lang)
     };
     recognition.onsoundend = function(){
-    document.getElementById('status').innerHTML = "停止中";
+    document.getElementById('status')!.innerHTML = "停止中";
     speechrecognition(lang)
     };
     recognition.onresult = function(event){
         var results = event.results;
         for (var i = event.resultIndex; i<results.length; i++){
         if(results[i].isFinal) {
-            document.getElementById('result_text').innerHTML = document.getElementById('result_text').innerHTML + results[i][0].transcript + ".<br />";
-            document.getElementById('interim').innerHTML = "";
+            document.getElementById('result_text')!.innerHTML = document.getElementById('result_text').innerHTML + results[i][0].transcript + ".<br />";
+            document.getElementById('interim')!.innerHTML = "";
         }
         else
-            document.getElementById('interim').innerHTML = results[i][0].transcript;
+            document.getElementById('interim')!.innerHTML = results[i][0].transcript;
         }
     }
     recognition.start();
