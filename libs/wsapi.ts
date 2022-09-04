@@ -3,7 +3,7 @@
 // https://monomonotech.jp/kurage/iot/webspeechapi_voice_recognition.html
 export function speechrecognition(lang: string) {
     if (typeof window !== "undefined") {
-        const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+        const SpeechRecognition = (window as any).SpeechRecognition || webkitSpeechRecognition;
     const recognition = new SpeechRecognition(); 
     recognition.onresult = console.log; 
     recognition.lang = 'ja';
