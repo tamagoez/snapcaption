@@ -25,7 +25,7 @@ export function speechrecognition(lang: string) {
     document.getElementById('status')!.innerHTML = "停止中";
     speechrecognition(lang)
     };
-    recognition.onresult = function(event){
+    recognition.onresult = function(event: any){
         var results = event.results;
         for (var i = event.resultIndex; i<results.length; i++){
         if(results[i].isFinal) {
