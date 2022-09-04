@@ -7,8 +7,8 @@ export function speechrecognition(lang: string) {
       webkitSpeechRecognition: any;
     }
     if (typeof window !== "undefined") {
-        const {webkitSpeechRecognition} : IWindow = <IWindow>window;
-        const SpeechRecognition = (window as any).SpeechRecognition || webkitSpeechRecognition;
+        // const {webkitSpeechRecognition} : IWindow = <IWindow>window;
+        SpeechRecognition = (window as any).SpeechRecognition || webkitSpeechRecognition;
     const recognition = new SpeechRecognition(); 
     recognition.onresult = console.log; 
     recognition.lang = 'ja';
