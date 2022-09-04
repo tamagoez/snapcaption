@@ -29,11 +29,11 @@ export function speechrecognition(lang: string) {
         var results = event.results;
         for (var i = event.resultIndex; i<results.length; i++){
         if(results[i].isFinal) {
-            document.getElementById('result_text')!.innerHTML = document.getElementById('result_text').innerHTML + results[i][0].transcript + ".<br />";
+            document.getElementById('result_text')!.innerHTML = document.getElementById('result_text')!.innerHTML + results[i][0]!.transcript + ".<br />";
             document.getElementById('interim')!.innerHTML = "";
         }
         else
-            document.getElementById('interim')!.innerHTML = results[i][0].transcript;
+            document.getElementById('interim')!.innerHTML = results[i][0]!.transcript;
         }
     }
     recognition.start();
