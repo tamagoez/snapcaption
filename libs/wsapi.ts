@@ -3,9 +3,6 @@
 // https://monomonotech.jp/kurage/iot/webspeechapi_voice_recognition.html
 export function speechrecognition(lang: string) {
     // https://stackoverflow.com/questions/38087013/angular2-web-speech-api-voice-recognition
-    export interface IWindow extends Window {
-      webkitSpeechRecognition: any;
-    }
     if (typeof window !== "undefined") {
         // const {webkitSpeechRecognition} : IWindow = <IWindow>window;
         // SpeechRecognition = (window as any).SpeechRecognition || webkitSpeechRecognition;
