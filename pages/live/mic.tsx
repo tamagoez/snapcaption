@@ -8,7 +8,7 @@ export default function MicCC() {
   let lang = 'ja'
   let popupstatus = 'false'
   const scrollBottomRef = useRef(null);
-  if (typeof window !== 'undefined') {lang = sessionStorage.getItem('cc-lang'); popupstatus = sessionStorage.getItem("popup")}
+  if (typeof window !== 'undefined') {lang = sessionStorage.getItem('cc-lang')!; popupstatus = sessionStorage.getItem("popup")!}
   speechrecognition(lang);
   useEffect(() => {
       const intervalId = setInterval(() => {
