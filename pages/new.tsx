@@ -23,7 +23,7 @@ export default function LiveCC(){
                 <figure><Image src="/mic_pexels-164960.jpg" alt="Mic" width='6000' height='4000' quality={2} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Mic</h2>
-                    <p>Start caption from mic(Also, you can make YouTube video's caption)</p>
+                    <p>Start caption from mic(Also, you can make YouTube video caption)</p>
                     <div className="card-actions justify-end">
                     <button className="btn btn-primary">New Mic Caption</button>
                     </div>
