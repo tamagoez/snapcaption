@@ -4,12 +4,9 @@
 export function speechrecognition(lang: string) {
     // https://stackoverflow.com/questions/38087013/angular2-web-speech-api-voice-recognition
     if (typeof window !== "undefined") {
-        // const {webkitSpeechRecognition} : IWindow = <IWindow>window;
-        // SpeechRecognition = (window as any).SpeechRecognition || webkitSpeechRecognition;
-    // const recognition = new (window as any).SpeechRecognition();
-    // const recognition = new webkitSpeechRecognition()
-        const SpeechRecognition = (window as any).speechRecognition || (window as any).webkitSpeechRecognition;
-        const recognition = new SpeechRecognition()
+    //const SpeechRecognition = (window as any).speechRecognition || (window as any).webkitSpeechRecognition;
+    //const recognition = new SpeechRecognition()
+    const recognition = new (window as any).webkitSpeechRecognition();
     recognition.onresult = console.log; 
     recognition.lang = 'ja';
     recognition.interimResults = true;
@@ -22,11 +19,20 @@ export function speechrecognition(lang: string) {
     };
     recognition.onerror= function(){
     document.getElementById('status')!.innerHTML = "エラー";
-    speechrecognition(lang)
+    setTimeout(function(){
+        document.getElementById('status')!.innerHTML = "再起動中...";
+        recognition.stop();
+        speechrecognition(lang)
+    },1000);
+    // speechrecognition(lang)
     };
     recognition.onsoundend = function(){
-    document.getElementById('status')!.innerHTML = "停止中";
-    speechrecognition(lang)
+        document.getElementById('status')!.innerHTML = "停止中";
+        setTimeout(function(){
+            document.getElementById('status')!.innerHTML = "再起動中...";
+            recognition.stop();
+            speechrecognition(lang);
+        },1000)
     };
     recognition.onresult = function(event: any){
         var results = event.results;

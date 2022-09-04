@@ -31,7 +31,7 @@ export default function LiveCC(){
             </div>
             </Link>
   <div className="divider lg:divider-horizontal">OR</div> 
-  <Link href="/live/mic" passHref>
+  <Link href="/live/youtube" passHref>
   <div className="grid card lg:w-96 h-144 w-full bg-base-100 shadow-xl rounded-box">
                 <figure><img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube" /></figure>
                 <div className="card-body">
