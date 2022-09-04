@@ -1,9 +1,15 @@
+// https://stackoverflow.com/questions/38087013/angular2-web-speech-api-voice-recognition
+export interface IWindow extends Window {
+  webkitSpeechRecognition: any;
+}
+
 // https://www.twilio.com/blog/speech-recognition-browser-web-speech-api-jp
 // https://developer.mozilla.org/ja/docs/Web/API/Web_Speech_API
 // https://monomonotech.jp/kurage/iot/webspeechapi_voice_recognition.html
 export function speechrecognition(lang: string) {
     if (typeof window !== "undefined") {
-        const SpeechRecognition = (window as any).SpeechRecognition || window['webkitSpeechRecognition'];
+        const {webkitSpeechRecognition} : IWindow = <IWindow>window;
+        const SpeechRecognition = (window as any).SpeechRecognition || webkitSpeechRecognition;
     const recognition = new SpeechRecognition(); 
     recognition.onresult = console.log; 
     recognition.lang = 'ja';
