@@ -8,8 +8,8 @@ export function speechrecognition(lang: string) {
     }
     if (typeof window !== "undefined") {
         // const {webkitSpeechRecognition} : IWindow = <IWindow>window;
-        SpeechRecognition = (window as any).SpeechRecognition || webkitSpeechRecognition;
-    const recognition = new SpeechRecognition(); 
+        // SpeechRecognition = (window as any).SpeechRecognition || webkitSpeechRecognition;
+    const recognition = new (window as any).SpeechRecognition(); 
     recognition.onresult = console.log; 
     recognition.lang = 'ja';
     recognition.interimResults = true;
